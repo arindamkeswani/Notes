@@ -14,4 +14,10 @@
 - Changing the UI is a very costly operation, so we wish to optimise it as much as possible, which is where frameworks/libraries such as Angular, Vue, React come in. They implement the optimisation of changing of UI components
 
 > Types of functions in JavaScript
+- Functions are very powerful in JavaScript and can be used in many ways, so much so that they are considered first-class citizens.
+![](2022-04-18-17-57-41.png)
+
+- If parameter is defined in the function definition but not passed while invokation, it will be considered         `undefined`
+
+
 
