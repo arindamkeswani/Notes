@@ -175,3 +175,35 @@ This is due to the scope, which is the area where a function or a variable can b
 So, if function `b()` does not have `varName`, it will search outside the function body, layer by layer, all the way till the global area, till the variable is found. This is called `scope chain` If not found, it will give an error.
 
 ___
+> #  Questions on var keyword & function scope
+
+![](2022-04-19-15-12-12.png)
+
+Output:
+
+![](2022-04-19-15-26-28.png)
+
+___
+
+`var`'s value can be re-assigned. 
+
+Re-declaration is of no use as the variable has already been allotted memory
+
+![](2022-04-19-15-18-28.png)
+
+___
+![](2022-04-19-15-20-09.png)
+
+Output:
+
+![](2022-04-19-15-23-28.png)
+
+Reason:
+`var` follows functional scope, so once a variable is declared inside a function, re-declaration will not have any effect, though the value can be re-assigned
+
+___
+![](2022-04-19-15-28-35.png)
+
+Output:
+
+![](2022-04-19-15-29-00.png)

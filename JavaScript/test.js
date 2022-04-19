@@ -1,16 +1,8 @@
-console.log("varName", varName);
-var varName;
-console.log("varName", varName);
-varName = "Captain America"
-console.log("varName", varName);
-fn()
-function fn(){
-    console.log("Hello from fn");
+let letFruit = "orange";
+var varFruit = "orange"
+console.log("leftFruit", letFruit, "varFruit", varFruit)
+let letFruit = "apple";
+var varFruit "apple";
+console.log("leftFruit", letFruit, "varFruit", varFruit)
 }
-
-fn();
-fnContainer();
-var fnContainer = function(){
-    console.log("I am an expression");;
-}
-fnContainer();
+console.log("leftFruit", letFruit, "varFruit", varFruit);
