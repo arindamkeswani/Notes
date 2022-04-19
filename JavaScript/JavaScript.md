@@ -119,3 +119,59 @@ Output:
 ![](2022-04-19-12-22-20.png)
 
 Reason: `var` has undefined value by default
+
+___
+> # Lexical scope and scope chain
+
+![](2022-04-19-12-47-39.png)
+
+Output:
+
+
+![](2022-04-19-14-15-15.png)
+
+
+
+
+Reason: Lexically, searching "outside" means outside the definition of the function, not where it is called.
+
+Note: After a function is done executing, it is removed from the call stack.
+___
+
+![](2022-04-19-12-51-55.png)
+
+Output:
+
+`20`
+
+Reason:
+
+Our code runs in the execution context, which is inside the call stack.
+
+Our code runs inside the global execution context, which has the global object, this, and the code (i.e. the variables, functions etc. are alloted memory)
+
+`varName` is set as undefined, and the function in in the made in heap memory, with the address reference in the call stack.
+
+Whenever a `function is called`, its own execution context is created on the stack. 
+The global object is passed on to this new context, and `this` is calculated. The variables inside the function are allocated memory, so a new `varName` is created, with value set as undefined. Then, the code is executed.
+
+
+Q:
+
+![](2022-04-19-13-04-56.png)
+
+Output:
+
+![](2022-04-19-13-05-26.png)
+
+Reason: Line 5 is undefined because of the function's EC, which has allocated memory to a new `varName`
+
+If we add the following block on code, it will pick up he value as 20 in line 8
+
+![](2022-04-19-13-14-12.png)
+
+This is due to the scope, which is the area where a function or a variable can be found.
+
+So, if function `b()` does not have `varName`, it will search outside the function body, layer by layer, all the way till the global area, till the variable is found. This is called `scope chain` If not found, it will give an error.
+
+___
