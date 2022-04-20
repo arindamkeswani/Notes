@@ -505,3 +505,48 @@ Make sure that you initialize the accumulator (as done in line 25)
 
 
 </details>
+
+---
+
+<details>
+
+<summary>
+
+> # Polyfills of map , filter & reduce
+
+</summary>
+
+Older browsers do not support some ES6 functions, so we need to write imperative code for those functions, which are known as polyfills
+
+`map` 
+
+Declarative code:
+
+![](2022-04-20-15-26-17.png)
+
+Imperative/polyfill code:
+
+![](2022-04-20-15-29-57.png)
+
+
+`filter`
+
+Declarative code:
+
+![](2022-04-20-15-32-43.png)
+
+Imperative/polyfill code:
+
+![](2022-04-20-15-34-59.png)
+![](2022-04-20-15-36-37.png)
+
+
+`reduce`
+
+Imperative/polyfill code:
+
+![](2022-04-20-15-42-01.png)
+
+Polyfills using `this` and `Array.prototype` can be found [here](https://reeversedev.com/polyfill-for-foreach-map-filter-reduce)
+
+</details>
