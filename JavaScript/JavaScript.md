@@ -399,3 +399,79 @@ Everything including Dates, erroes, modules are objects
 Though, there are 6 primitive types -> number, string, boolean, undefined, null, symbol
 </details>
 
+___
+
+<details>
+<summary>
+
+> # Pure functions
+
+</summary>
+
+
+Earlier, we have procedural programming, and OOPS, not functional programming is very common
+
+Procedural: Go through the code line by line. We explain how to do a task.
+
+OOPS: Break down the problem into objects and classes with concepts on inheritance, polymorphism, etc.
+
+Functional programming:
+There are two ways of writing code, imperative and declarative. 
+Functional programming follows the latter.
+
+It always focuses on immutability.
+
+___
+
+Imperative v/s Declarative
+
+Imperative: Focuses on how to go about a problem
+
+![](2022-04-20-13-07-49.png)
+
+Declarative: Give me the problem, I will return the solution
+
+![](2022-04-20-13-10-45.png)
+
+___
+
+Pure and Impure functions
+
+Impure functions: Same function can give different return value even if the params passed to it are the same
+
+![](2022-04-20-13-13-59.png)
+
+Value of the function will change if `a` changes in value. So, a fnuction should not depend on an external factor
+
+Pure functions: 
+
+![](2022-04-20-13-15-57.png)
+
+It will always return the same results for the same set of arguments passed to it.
+Other than the result of the function, no external state should be changed, therefore `console.log()` changes the external screen and is a side effect.
+
+So, the purest way to write it would be
+
+![](2022-04-20-13-19-13.png)
+
+
+___
+
+Mutability and Immutability
+
+Functional programming recommends immutable code so that the values that we have assigned cannot be altered
+
+![](2022-04-20-13-25-00.png)
+
+Data was mutated, even when we did not wish to. 
+
+Solution:
+
+![](2022-04-20-13-26-35.png)
+
+Or, use Spread operator
+
+![](2022-04-20-13-27-25.png)
+
+Keep nesting in mind
+</details>
