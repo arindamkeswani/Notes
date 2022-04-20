@@ -1,6 +1,10 @@
 # JavaScript Notes
 
-> # What is JavaScript?
+<details>
+<summary>  
+
+> # What is JavaScript? 
+</summary>
 - Language that provides logic inside the JavaScript Runtime environment, which is present in browsers, like V8 Engine in Chrome, Firefox's SpiderMonkey, etc.
 - Features/APIs are given by the Environment itself. E.g.
     - the line `console.log()` is not a part of JavaScript. It is a feature given the the env such as a browser or Node.js
@@ -13,8 +17,15 @@
 - Node.js is an environment that supports JS
 - Changing the UI is a very costly operation, so we wish to optimise it as much as possible, which is where frameworks/libraries such as Angular, Vue, React come in. They implement the optimisation of changing of UI components.
 
+</details>
 ---
+
+<details>
+<summary>
+
 > # Types of functions in JavaScript
+</summary>
+
 - Functions are very powerful in JavaScript and can be used in many ways, so much so that they are considered first-class citizens.
 ![](2022-04-18-17-57-41.png)
 
@@ -47,9 +58,13 @@ Shorthand for single parameter:
 ![](2022-04-19-11-34-11.png)
     - The returned value will be the address of the function,and can be stored in a variable, which in turn can be called.
 
+</details>
 ---
+<details>
+<summary>
 
 > # JS Code Execution | Hoisting | Execution Context
+</summary>
 
 ![](2022-04-19-11-43-18.png)
 
@@ -67,8 +82,11 @@ A new function will be created in the heap for the third declaration, and the st
 No matter where you call the function in the program, the latest `real` will be called as it was referenced in the stack before the code was executed
 
 
-![](2022-04-19-12-11-04.png)     
+![](2022-04-19-12-11-04.png)    
+
 _________
+
+
 - JS code executes top to bottom, left to right
 
 - Execution Context is a wrapper for our JS code which contains the following:
@@ -90,6 +108,8 @@ _________
     1. Global object
     2. this
     3. the code itself is allocated memory
+
+
 ___
 ## Memory allocation
 `var` : Memory is allocated, assigned `undefined` value. This mempry allocation process is known as "`hoisting`" 
@@ -120,8 +140,13 @@ Output:
 
 Reason: `var` has undefined value by default
 
+</details> 
 ___
+<details> 
+<summary>
+
 > # Lexical scope and scope chain
+</summary>
 
 ![](2022-04-19-12-47-39.png)
 
@@ -173,10 +198,14 @@ If we add the following block on code, it will pick up he value as 20 in line 8
 This is due to the scope, which is the area where a function or a variable can be found.
 
 So, if function `b()` does not have `varName`, it will search outside the function body, layer by layer, all the way till the global area, till the variable is found. This is called `scope chain` If not found, it will give an error.
-
+</details> 
 ___
-> #  Questions on var keyword & function scope
 
+<details> 
+<summary>
+
+> #  Questions on var keyword & function scope
+</summary>
 ![](2022-04-19-15-12-12.png)
 
 Output:
@@ -207,3 +236,96 @@ ___
 Output:
 
 ![](2022-04-19-15-29-00.png)
+
+</details> 
+
+---
+<details>
+<summary>
+
+> # Let, Const
+</summary>
+
+`let` and `const` were introduced in ES6
+
+`let` : Declaration is the same as var, and the default value is undefined
+
+The value can be re-assigned, but a variable cannot be re-declared in this case. Here, it will give an error while hoisting/interpreting, so code for valid lines will not be executed at all.
+
+Temporal dead zone: An area for let and const between the line where code starts and the line in which the variable is declared.
+
+This means that we cannot access a variable before it is declared in let and const, whereas in var it gave the value as undefined.
+
+TDZ is not an error, but a safety measure.
+
+![](2022-04-20-11-09-17.png)
+
+
+`const` : Similar behavior as let wrt TDZ, but we have to assign the variable some value. 
+
+We cannot re-assign the value of this variable nor can we re-declare it.
+
+___
+
+Block scope : Memory of a variable is allotted according to the block
+
+![](2022-04-20-11-14-28.png)
+
+Output:
+
+![](2022-04-20-11-15-22.png)
+
+
+Temporal dead zone is also valid inside the block
+![](2022-04-20-11-16-33.png)
+
+If the same variable is not defined inside the block, then it will look for it in outer blocks
+
+![](2022-04-20-11-19-55.png)
+
+Line 28 will print "orange"
+
+___
+
+Variable shadowing: A variable defined within an inner block shadows a variable of the same name defined in the outer block.
+
+Illegal shadowing: var is function scoped, let and const are block scoped. Therefore, if `var` is defined in the inner block and a variable of the same name but with `let` or `const` is defined in the outer block, it is considered illegal and will give an error.
+
+___
+Summary:
+
+`var`
+- Scope: function
+- Reassign: Allowed
+- Redeclaration: Allowed
+- Temporal dead zone: N/A
+
+`let`
+- Scope: block
+- Reassign: Allowed
+- Redeclaration: Not allowed
+- Temporal dead zone: Yes
+
+`const`
+- Scope: block
+- Reassign: Not allowed
+- Redeclaration: Not allowed
+- Temporal dead zone: Yes
+___
+Note:
+
+![](2022-04-20-11-36-05.png)
+
+Line 2 is a valid operation, Line 4 is not
+</details> 
+
+---
+<details>
+<summary>
+
+
+
+</summary>
+
+
+</details>
