@@ -475,3 +475,33 @@ Or, use Spread operator
 
 Keep nesting in mind
 </details>
+
+---
+
+<details>
+<summary>
+
+> # Higher order functions (map, filter, reduce)
+
+</summary>
+
+Higher order functions take another function as a parameter to which we pass some data to get some desired output.
+
+![](2022-04-20-14-00-05.png)
+
+`map` : Iterates over the entire array, takes each element as the parameter in the inner function and returns its updated value in a new array.
+
+![](2022-04-20-14-05-42.png)
+
+`filter` : Returns a new array, after iterating over the elements of the previous array and selecting those elements that fulfil a given condition. Whenever the condition is true, the value is selected, otherwise it is not.
+
+![](2022-04-20-14-09-58.png)
+
+`reduce` : Takes the value calculated so far (accumulated value), and the current element and returns a single accumulated value
+
+Make sure that you initialize the accumulator (as done in line 25)
+
+![](2022-04-20-14-13-26.png)
+
+
+</details>
