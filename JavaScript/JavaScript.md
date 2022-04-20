@@ -18,6 +18,7 @@
 - Changing the UI is a very costly operation, so we wish to optimise it as much as possible, which is where frameworks/libraries such as Angular, Vue, React come in. They implement the optimisation of changing of UI components.
 
 </details>
+
 ---
 
 <details>
@@ -59,7 +60,10 @@ Shorthand for single parameter:
     - The returned value will be the address of the function,and can be stored in a variable, which in turn can be called.
 
 </details>
+
 ---
+
+
 <details>
 <summary>
 
@@ -111,6 +115,8 @@ _________
 
 
 ___
+
+
 ## Memory allocation
 `var` : Memory is allocated, assigned `undefined` value. This mempry allocation process is known as "`hoisting`" 
 
@@ -141,7 +147,9 @@ Output:
 Reason: `var` has undefined value by default
 
 </details> 
+
 ___
+
 <details> 
 <summary>
 
@@ -161,6 +169,7 @@ Output:
 Reason: Lexically, searching "outside" means outside the definition of the function, not where it is called.
 
 Note: After a function is done executing, it is removed from the call stack.
+
 ___
 
 ![](2022-04-19-12-51-55.png)
@@ -199,6 +208,7 @@ This is due to the scope, which is the area where a function or a variable can b
 
 So, if function `b()` does not have `varName`, it will search outside the function body, layer by layer, all the way till the global area, till the variable is found. This is called `scope chain` If not found, it will give an error.
 </details> 
+
 ___
 
 <details> 
@@ -292,6 +302,7 @@ Variable shadowing: A variable defined within an inner block shadows a variable 
 Illegal shadowing: var is function scoped, let and const are block scoped. Therefore, if `var` is defined in the inner block and a variable of the same name but with `let` or `const` is defined in the outer block, it is considered illegal and will give an error.
 
 ___
+
 Summary:
 
 `var`
@@ -311,21 +322,80 @@ Summary:
 - Reassign: Not allowed
 - Redeclaration: Not allowed
 - Temporal dead zone: Yes
+
 ___
+
 Note:
 
 ![](2022-04-20-11-36-05.png)
 
 Line 2 is a valid operation, Line 4 is not
+
+When we define an array using const, the reference of the first element is stored in the variable, it should not be removable but an operation like `arr.shift()`, which removes the first value of the array, is valid. 
 </details> 
 
+
 ---
+
 <details>
 <summary>
 
-
+> # Everything is an object in JS
 
 </summary>
+An object consists of key value pair
 
+The key can be string or a number
+```
+ let object = {
+    name: "Arindam",
+    lastName: "Keswani",
+    sayHi: function () {
+        console.log("Arindam says hi!")
+    }
+}
+```
 
+To loop over the object's keys and retrieve values:
+
+![](2022-04-20-12-07-55.png)
+
+Everything, including an array is an object in JS
+
+![](2022-04-20-12-11-17.png)
+
+Output:
+
+![](2022-04-20-12-12-05.png)
+
+If you try to run a for-in loop on this array like before, you will see the following:
+
+![](2022-04-20-12-13-10.png)
+
+Each "index" acts as a key. Defining a random index say `arr[90]=100` will give empty values in between.
+
+Objects are emulated as arrays in JS
+
+Therefore, to answer the question give at the end of the previous section.
+
+When `.shift()` operation is performed, the "0" key is removed, but the reference remains the same.
+
+___
+
+We can assign properties to functions as well, which will treat the function like an object.
+
+![](2022-04-20-12-33-53.png)
+
+On printing the function, we will get:
+
+![](2022-04-20-12-38-02.png)
+
+So, function is an object, and has a key:value pair functionality
+
+Extra feature: Code inside a function can be executed when you invoke the function.
+
+Everything including Dates, erroes, modules are objects
+
+Though, there are 6 primitive types -> number, string, boolean, undefined, null, symbol
 </details>
+
