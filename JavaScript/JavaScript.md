@@ -925,3 +925,34 @@ Output:
 
 
 </details>
+
+---
+
+
+<details>
+
+<summary>
+
+> # Function currying
+
+</summary>
+
+Currying is helpful when you have to frequently call a function with a fixed argument.
+
+![](2022-04-21-15-22-05.png)
+
+![](2022-04-21-15-26-39.png)
+
+Output for both:
+
+`7`
+
+### Currying using closures
+
+![](2022-04-21-15-31-27.png)
+
+The inner function is returned, and then it is called with a parameter (3). This returned function will have access of variable `x` because of closure property.
+
+Here `x`=2 and `y`=3, So output will be `5`
+
+</details>
