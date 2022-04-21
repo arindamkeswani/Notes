@@ -550,3 +550,50 @@ Imperative/polyfill code:
 Polyfills using `this` and `Array.prototype` can be found [here](https://reeversedev.com/polyfill-for-foreach-map-filter-reduce)
 
 </details>
+
+---
+
+<details>
+<summary>
+
+> # Closures in JavaScript
+
+</summary>
+
+## <u> Function scope </u>
+
+![](2022-04-21-10-33-13.png)
+
+If we run the above code anippet, we will get the following error
+
+![](2022-04-21-10-33-47.png)
+
+This is because we cannot access a variable defined inside a function from outside that function, irrespective of its initialization being done using `let`, `var`, or `const`.
+
+
+## <u> Lexical scope </u>
+
+![](2022-04-21-10-38-56.png)
+
+Output: 
+`9`
+
+Reason: The variable `a` can be accessed from inside the function. A nested/child function can access its parent's variables.
+
+
+## <u> Closures </u>
+
+When a function returns something, its execution is over and it is removed from the stack.
+
+Say we return a function from another function in the following manner
+
+![](2022-04-21-10-45-38.png)
+
+The inner function (addChild) will be stored in `catchAdd`. So now we can call it and the output will be `9` again, even though the child function is being called from outside the parent function.
+
+This shows that the child function still has access to the parent function although the parent function has been removed from the stack. This is known as closures.
+
+A function is always bundled with its lexical scope i.e. a function always has access to its lexical scope, even if the parent function does not exist on the call stack anymore
+
+
+</details>
