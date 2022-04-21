@@ -597,3 +597,78 @@ A function is always bundled with its lexical scope i.e. a function always has a
 
 
 </details>
+
+---
+
+<details>
+<summary>
+
+> # Prototype and Polyfills of Map, Filter, & Reduce
+
+</summary>
+JS engines work behind the scenes in a browser to run JS code
+
+Every browser has a different engine.
+
+Chrome: V8 Engine (also used by Node.js)
+Mozila Firefox: Spider Monkey
+Internet Explorer: Chakra
+
+When you define an array in the browser's console in the following manner, you will get a part of the output that says `[[Prototype]]`
+
+![](2022-04-21-11-13-52.png)
+
+On clicking the drop down menu we will see a list of functions. These are all the functions that we can use on a JS array. But it is not necessary that each browser supports all these functions. This means that if we wrote our code by using functions that are available in one browser and not available in another, it will cause errors in the latter browser.
+
+We can use this Prototype to create our own functions which we can use in any browser. 
+
+![](2022-04-21-11-18-21.png)
+
+
+![](2022-04-21-11-20-50.png)
+
+Output: The array itself
+
+So, we can implement map filter and reduce in this manner
+
+___
+
+`map`
+
+
+![](2022-04-21-11-26-25.png)
+
+
+`filter`
+
+![](2022-04-21-11-28-37.png)
+
+![](2022-04-21-11-29-00.png)
+
+</details>
+
+---
+
+<details>
+<summary>
+
+> # Introduction to OOPS in JavaScript
+
+</summary>
+
+Concepts to study:
+1. this
+    - Behaviour in browser
+    - Behavior in Node
+    - Strict, non-strict mode in both browser and Node 
+
+2. Contructor functions
+    - Create your own objects
+
+3. Call, Apply, Bind
+    - With Bind polyfill (using Prototype)
+
+4. Prototypal inheritance
+    - Passing the behavior of an object to another object, not similar to classic inheritance concept
+
+</details>
