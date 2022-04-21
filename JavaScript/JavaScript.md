@@ -846,3 +846,82 @@ Output: `undefined`
 </details>
 
 ---
+
+<details>
+
+<summary>
+
+> # Call, Apply, Bind
+
+</summary>
+
+In the previous section, we saw how `this` can be used in different situations, and the output depends on the context.
+
+There are some functions that use `this` to perform some operations, namely call, apply, and bind functions
+
+
+![](2022-04-21-13-53-05.png)
+
+Output:  ![](2022-04-21-13-53-31.png)
+
+As `this` inside a function inside an object refers to the object itself
+
+
+
+## `call`
+
+Now, to do the same for `person2`, we need a better way to use the same function without making the same function inside the object, by re-using what is already created in `person1`, using `call` method
+
+![](2022-04-21-13-59-16.png)
+
+Output: ![](2022-04-21-14-00-55.png)
+
+
+
+This is known as "function borrowing"
+
+Let's say that we do not wish to give an object enough importance that every other object is borrowing functions from it. 
+
+So, we can define this function globally
+
+![](2022-04-21-14-03-37.png)
+
+So, not we do not need to borrow the function from `person1` object
+
+![](2022-04-21-14-04-14.png)
+
+
+If we want to add parameters in this function, we can do so as follows:
+
+![](2022-04-21-14-48-36.png)
+
+___
+
+
+## `apply`
+
+Syntax (using the previous exmaple) :
+
+![](2022-04-21-14-51-18.png)
+
+Here, the argument is passed in as apart of an array
+
+___
+
+## `bind`
+
+
+If we try to run the code in the same way as the call function, the output will be blank because the bind function did not actually make the call.
+
+The `bind()` method creates a new function that, when called, has its `this` keyword set to the provided value.
+
+Calling this function would get the desired value from the object it is bound to.
+
+![](2022-04-21-15-06-44.png)
+
+Output:
+
+![](2022-04-21-15-06-57.png)
+
+
+</details>
