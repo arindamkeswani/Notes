@@ -956,3 +956,55 @@ The inner function is returned, and then it is called with a parameter (3). This
 Here `x`=2 and `y`=3, So output will be `5`
 
 </details>
+
+---
+
+<details>
+<summary>
+
+> # Bind polyfill
+
+<!-- </summary> -->
+
+Like we used Array prototype to implement polyfill of map, filter, reduce, we can use Function prototype to write the polyfill of bind.
+
+Default usage of bind is as follows:
+
+![](2022-04-21-16-05-55.png)
+
+
+First step is to understand that `bind` returns a function
+
+`this` points towards the function on which bind is applied
+
+![](2022-04-21-16-11-13.png)
+
+Next, we need to attach the object to which we want to bind the function.
+
+The object is passed in the first argument.
+
+![](2022-04-21-16-17-06.png)
+
+Our bind function is able to refer to our object, but this will not handle the case of multiple parameters
+
+![](2022-04-21-16-18-17.png)
+
+
+To use these parameters, extract them by using `slice` but keep in mind that params will have an array.
+
+![](2022-04-21-16-27-50.png)
+
+Simple use apply instead of call to have the returned function accept the parameters as an array
+
+
+![](2022-04-21-16-29-32.png)
+
+Even after this, currying will cause problems and we will not be able to dynamically send parameters. 
+
+For that, handle args in the returned function
+
+![](2022-04-21-16-32-33.png)
+
+
+</details>
+
