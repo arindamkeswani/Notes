@@ -672,3 +672,177 @@ Concepts to study:
     - Passing the behavior of an object to another object, not similar to classic inheritance concept
 
 </details>
+
+---
+
+<details> 
+
+<summary>
+
+> # this
+
+</summary>
+
+`this` keyword behaves differently in different environments
+
+The environments mentioned here are:
+1. Browser
+2. Node.js
+
+In them there are 2 modes in which run execute JS code:
+1. Non-Strict mode
+2. Strict mode
+
+E.g.: the following code will run without problems
+
+![](2022-04-21-12-29-10.png)
+
+But if we use strict mode, it will give an error
+
+![](2022-04-21-12-29-41.png)
+
+Output:
+
+![](2022-04-21-12-30-57.png)
+
+To fix this, initialise the variable with var, let, or const
+
+
+
+## <u> Node.js and non-strict mode </u>
+
+4 cases:
+
+1. ### Logging `this`
+
+![](2022-04-21-12-36-24.png)
+
+An empty object is returned
+
+___
+
+2. ### Logging `this` inside a function
+
+![](2022-04-21-12-38-27.png)
+
+Output: Returns the global object
+
+![](2022-04-21-12-37-38.png)
+
+___
+
+3. ### Logging `this` inside a function in an object
+
+![](2022-04-21-12-41-26.png)
+
+Output: Returns the object in which it is defined
+
+![](2022-04-21-12-44-50.png)
+
+
+___
+
+4. ### Logging `this` inside a nested function in an object
+
+![](2022-04-21-12-45-45.png)
+
+Output: Returns the global object
+___
+
+## <u> Node.js and strict mode </u>
+
+4 cases:
+
+1. ### Logging `this`
+
+Output: Returns an empty object `{}`
+
+___
+
+
+2. ### Logging `this` inside a function
+
+![](2022-04-21-12-49-40.png)
+
+___
+
+
+3. ### Logging `this` inside a function in an object
+
+Output: Returns the object in which it is defined
+
+___
+
+
+4. ### Logging `this` inside a nested function in an object
+
+Output: `undefined`
+
+___
+
+
+## <u> Browser and non-strict mode </u>
+
+
+4 cases:
+
+1. ### Logging `this`
+
+Output: Returns `Window` object
+
+![](2022-04-21-12-54-41.png)
+___
+
+
+2. ### Logging `this` inside a function
+
+Output: Returns `Window` object
+
+___
+
+
+3. ### Logging `this` inside a function in an object
+
+Output: Returns the object itself
+
+___
+
+
+4. ### Logging `this` inside a nested function in an object
+
+Output: Returns `Window` object
+
+___
+
+## <u> Browser and strict mode </u>
+
+4 cases:
+
+1. ### Logging `this`
+
+Output: Returns `Window` object
+
+___
+
+
+2. ### Logging `this` inside a function
+
+Output: `undefined`
+
+___
+
+
+3. ### Logging `this` inside a function in an object
+
+Output: The object itself is returned
+
+___
+
+
+4. ### Logging `this` inside a nested function in an object
+
+Output: `undefined` 
+
+</details>
+
+---
