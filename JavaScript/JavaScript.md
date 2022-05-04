@@ -964,7 +964,7 @@ Here `x`=2 and `y`=3, So output will be `5`
 
 > # Bind polyfill
 
-<!-- </summary> -->
+</summary>
 
 Like we used Array prototype to implement polyfill of map, filter, reduce, we can use Function prototype to write the polyfill of bind.
 
@@ -1005,6 +1005,61 @@ For that, handle args in the returned function
 
 ![](2022-04-21-16-32-33.png)
 
+
+</details>
+
+--- 
+
+<details>
+
+<summary>
+
+> # Constructor functions
+
+</summary>
+
+Let's say that we are expected to create objects which contain some details related to cars, so one way of doing that is as follows:
+
+![](2022-05-04-11-34-28.png)
+
+
+But this is a tedious way to do the task. 
+
+A better way is to define a function with the details as the arguments, which returns the new object with the required properties
+
+Constructor Functions can be used for such a job.
+
+![](2022-05-04-11-45-54.png)
+
+When `this` is defined inside a function, it returns the global object, but when constructor functions are defined and used with the `new` keyword, `this` returns an empty object.
+
+Basically, it returns a new object in which we can define our properties.
+
+We can then use `this` keyword to create properties and assign them values using the parameters that we have passed
+
+![](2022-05-04-11-51-39.png)
+
+Output:
+
+![](2022-05-04-11-51-54.png)
+
+You can create any number of such objects as follows:
+
+![](2022-05-04-11-53-11.png)
+
+You can access and mutate the object using dot `.` operator:
+![](2022-05-04-11-55-18.png)
+
+
+Adding a function insode the function can be done as follows:
+
+![](2022-05-04-11-57-40.png)
+
+Call the function:
+
+![](2022-05-04-11-58-09.png)
+
+Output: ![](2022-05-04-11-58-24.png)
 
 </details>
 
