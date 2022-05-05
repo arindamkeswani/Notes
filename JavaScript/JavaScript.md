@@ -1143,3 +1143,47 @@ The output will be the same if we try to call ![](2022-05-05-12-22-49.png)
 This is prototypal inheritance
 
 </details>
+
+---
+
+<details>
+<summary>
+
+> # Creating Objects with Classes and Constructors
+
+</summary>
+
+JavaScript does not have in-built concept off classes. It is simply syntactical sugar.
+
+To create an object using class, first define the class
+
+![](2022-05-05-15-21-56.png)
+
+![](2022-05-05-15-22-22.png)
+
+`person1` will store an object as follows:
+
+![](2022-05-05-15-22-54.png)
+
+In this manner, we can create an object using a class and a constructor
+
+To define a function in a class:
+
+![](2022-05-05-15-27-42.png)
+
+Output: ![](2022-05-05-15-28-02.png)  because `this` inside a function that is inside an object points to the object itself
+
+We can use classical inheritance as well.
+
+![](2022-05-05-15-30-10.png)
+
+Output: `Steve`
+
+We have inherited the `showDetails()` function.
+
+It is not recommended to use inheritance in JS.
+
+</details>
+
+---
+
