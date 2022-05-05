@@ -1063,3 +1063,83 @@ Output: ![](2022-05-04-11-58-24.png)
 
 </details>
 
+
+---
+
+<details>
+
+<summary>
+
+> # Prototype and Prototypal Inheritence
+
+</summary>
+
+### What are prototypes?
+
+We have a lot of in-built functions for data structures such as arrays (map, filter, reduce, etc), and properties too (e.g. length) that we can access. Same goes for other data structures such as objects
+
+![](2022-05-05-12-01-18.png)
+
+`arr.__proto__` will return a list of functions that the array can use
+
+Prototype can be understood to be an object that maintains the list of in-built functions of the respective data structure
+
+It is the same as `Array.prototype`
+
+![](2022-05-05-12-06-12.png)
+
+
+The following returns properties related to an object that we can access:
+
+![](2022-05-05-12-07-57.png)
+
+The returned value in an object. Since the prototype of the prototype of the array represents the properties of an object, it can be implied that the array is actually an object in JS
+
+Further proof of that:
+
+![](2022-05-05-12-10-17.png)
+
+
+Suppose we define an object as follows let's check out its prototype:
+
+![](2022-05-05-12-12-40.png)
+
+![](2022-05-05-12-13-17.png)
+
+These are the properties that are available to an object
+
+If we try to get its prototype even further, it will return `null`
+
+![](2022-05-05-12-14-22.png)
+
+___
+
+### What is prototypal inheritance?
+
+Imagine an object such as the one below:
+
+![](2022-05-05-12-18-03.png)
+
+Output: `Adam 25`
+
+Create another object as follows:
+
+![](2022-05-05-12-18-57.png)
+
+Now, we will try to manipulate the prototype of `perosn2`
+
+![](2022-05-05-12-20-16.png)
+
+Output: `Steve` (which was the original name of `person2`, so the `name` property was overriden by `person2`)
+
+But if we print the age (which is originally not present) as well:
+
+![](2022-05-05-12-21-19.png)
+
+Output: `Steve 25`
+
+The output will be the same if we try to call ![](2022-05-05-12-22-49.png)
+
+This is prototypal inheritance
+
+</details>
