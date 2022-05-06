@@ -1307,3 +1307,103 @@ Then after executing its output, it will remove `st2` and bring `st1` to the cal
 With that, the execution will be completed
 
 </details>
+
+---
+
+<details>
+
+<summary>
+
+Serial and Parallel execution of Code with callbacks ft. Event Loop
+
+</summary>
+
+As discussed in the previous section, the code flow can be sync or async
+
+Similarly, tasks can be serial or parallel.
+
+## Serial tasks:
+
+E.g. We are supposed to upload a video, so the steps to do that will be the following:
+
+1. Create the video
+2. Edit the video
+3. Upload the video
+
+Each step is dependent on the previous one, and cannot process till the prev step is completed.
+
+## Parallel tasks:
+
+E.g. Downloading videos from a website. The order in which the videos are downloaded does not matter
+
+These tasks are independent of each other.
+
+___
+
+We have the following snippet:
+
+![](2022-05-06-15-25-14.png)
+
+Note: Typo - `fs.readFile`
+
+Output: ![](2022-05-06-15-27-24.png)
+
+The Buffer portion of the output contains the data of the file, which can be printed as it is if we apppend a string to it.
+
+Notice how the content is printed after the `after` line. 
+The async nature is responsible for this.
+
+
+Line 4 will be executed first, the process will be brought on to the call stack, then removed after the logging `before` is complete.
+
+![](2022-05-06-15-35-16.png)
+
+Note that `fs.readFile` is not a JS function, it is provided by Node, so it will go in the Node API section along with the callback function
+
+![](2022-05-06-15-37-23.png)
+
+Then line 18 will be executed, brought on to the call stack, `after` is logged, then process is removed from the call stack
+
+Output so far:
+
+![](2022-05-06-15-39-28.png)
+
+After that, the callback function comes in the callback queue after its output is ready.
+
+The event loop will check if the call stack is empty, and then push the callback function on it for its output to be executed
+
+___
+
+So how do we read files serially and parallely?
+
+## Parallel:
+
+![](2022-05-06-16-04-22.png)
+
+Output:
+
+![](2022-05-06-16-09-10.png)
+
+Notice how the output is not displayed in the order in which it is encountered in the code. 
+
+This is due to parallel reading of files in the Node API section. Whichever file is done executing first, is pushed to the callback queue first, which implies that it is brought to the call stack first, where the output is then printed.
+ 
+If you run the code again, you may receive the file content in a different order
+
+## Serial:
+
+We need to make sure that the callback functions are called in the sequence in which we require them to.
+
+We will have to use nesting for that.
+
+![](2022-05-06-16-18-49.png)
+
+Output:
+
+![](2022-05-06-16-19-14.png)
+
+The output will be the same no matter how many times we run it.
+
+These nesting of callbacks is popularly known as "callback hell".
+
+</details>
