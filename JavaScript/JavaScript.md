@@ -1187,3 +1187,123 @@ It is not recommended to use inheritance in JS.
 
 ---
 
+<details>
+
+<summary>
+
+> # Sync and Async programming with callbacks ft. event loop
+
+</summary>
+
+### Callbacks
+
+Stopping the main thread for a long process is inefficient as the rest of the processes get halted
+
+So we can tell these processes "I will resolve your process, but later. I will call you back.". Then we continue to solve processes in the thread and deal with this longer process later.
+
+This is the concept of <u>Asyncronous JavaScript</u>
+
+JavaScript is a synchronous, single-threaded language. Since this synchronous behavior can make the code run slowly, the concepts of callbacks, promises, async await were introduced.
+
+
+Say we have the following function:
+
+![](2022-05-06-11-38-28.png)
+
+We want to move to `log` functionality to another function, as follows. 
+
+![](2022-05-06-11-41-17.png)
+
+We passed a function `logGreeting()` as a callback function to `greet()` as a parameter, and got the same output.
+
+We can pass multiple functions as follows:
+
+![](2022-05-06-11-44-56.png)
+
+Output:
+
+![](2022-05-06-11-45-16.png) 
+
+The callbacks that we just encountered are known as synchronous callbacks, as the code executed line by line without interruptions.
+
+Asynchronous callbacks can be understood as follows:
+
+![](2022-05-06-12-54-44.png)
+
+Output:
+```
+Hello
+bye
+*1 second delay*
+I am st2
+*1 more second delay*
+I am st1
+```
+
+Initially, one would expect the output to be:
+
+```
+Hello
+*2 second delay*
+I am st1
+*1 second delay*
+I am st2
+bye
+```
+
+The reason for the actual output can be understood by visualising the call stack, Node APIs, callback queue, and the <u>event loop</u>:
+
+As soon as JS code is executed, the global execution context (GEC) in created in the call stack, which means that the main thread of processes goes to the call stack
+
+![](2022-05-06-13-07-20.png)
+
+Then line 1 will be executed and put on the call stack
+
+![](2022-05-06-13-09-11.png)
+
+Then `Hello` is logged and the process is removed from the call stack
+
+![](2022-05-06-13-09-48.png)
+
+
+Then we encounter `st1`.
+
+Note: setTimeout() is not an in-built JS function. It is provided by Node.js
+
+So it goes straight into the Node API
+
+![](2022-05-06-13-12-51.png)
+
+Then, `st2` is encountered and dealth with in the same way
+
+![](2022-05-06-13-13-43.png)
+
+After the two callbacks functions are done executing and their output is ready, the callback queue picks them up in FIFO order, So `st2` will be giving preference as its output was ready in 1 sec while `st1` took 2 secs
+
+![](2022-05-06-13-18-22.png)
+
+Then the event loop checks the call stack to see if it is empty, and in this case it is not as we have `sayBye` yet to be called
+
+![](2022-05-06-13-22-17.png)
+
+After getting called, and its output logged, it is removed from the call stack
+
+![](2022-05-06-13-22-56.png)
+
+Output so far:
+
+![](2022-05-06-13-23-25.png)
+
+Then the main thread is done executing and the call stack is now empty
+
+So the event loop now gives permission to `st2` to the call stack
+
+![](2022-05-06-13-25-45.png)
+
+Then after executing its output, it will remove `st2` and bring `st1` to the call stack and log its output
+
+![](2022-05-06-13-34-25.png)
+
+With that, the execution will be completed
+
+</details>
