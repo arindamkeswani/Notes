@@ -1497,6 +1497,72 @@ To test the code, call the created functions:
 
 The callback passed should be `greeting`, not `greet`.
 
+</details>
+
+---
+
+<details>
+
+<summary>
+
+> # Promises Polyfill
+
+</summary>
+
+A few things to note:
+
+Promise has 3 states:
+1. Pending
+2. Fulfilled
+3. Rejected
+
+Promise is not a function, it is an object.
+After running a function, the Promise is visible after the output is returned.
+
+Based on the output, the Promise returns one of the three above states.
+
+We will be creating a Promise using a constructor function
+
+Default states are as follows:
+
+![](2022-05-07-13-55-04.png)
+
+![](2022-05-07-13-55-48.png)
+
+
+Now, we need to write `.then()` and `.catch()` functions
+
+
+![](2022-05-07-15-16-47.png)
+
+else condition signifies that we are yet to handle that callback, so we push it in the respective array, from where it will be sequentially handled.
+
+Next, we will pass the resolve and reject functions in the executor
+
+![](2022-05-07-16-18-48.png)
+
+Create new Promises
+
+
+![](2022-05-07-16-22-24.png)
+
+`doWork` is actually the executor which is to be resolved
+
+This will then run the `resolve` function and updates the values accordingly
+
+Otherwise, it will be rejected and the respective function will be called
+
+Make a new Promise
+
+![](2022-05-07-16-28-29.png)
+
+Output:
+
+![](2022-05-07-16-28-57.png)
+
+After changing the conditions to run the catch block, we get
+
+![](2022-05-07-16-29-47.png)
 
 
 
