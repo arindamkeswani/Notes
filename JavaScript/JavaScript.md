@@ -1567,3 +1567,41 @@ After changing the conditions to run the catch block, we get
 
 
 </details>
+
+---
+
+<details>
+
+<summary>
+
+> # Micro Task Queue
+
+</summary>
+
+![](2022-05-07-16-46-09.png)
+
+Output:
+
+![](2022-05-07-16-48-59.png)
+
+Note that "I am Set Time Out" is printed after a delay.
+
+Explanation: 
+
+1. GEC is created and put on the call stack
+2. Line 1 is executed and process is put on the call stack
+3. "Program Starts" is printed, removed from the call stack
+4. SetTimeout block brought onto the call stack and is then pushed to the Node APIs for execution
+5. Promise block is also pushed to the call stack, then to the Node APIs section, as it is not a JS functionality
+6. Line 13 is executed, as the others are Node APIs. It is brought onto the call stack
+7. "Program Ends" is printed and removed from the call stack
+8. Similar to callback queue, we also have a micro task queue. Its job is to take in Promisified code's output.
+9. setTimeout's output will be taken to the callback queue
+10. Now that the main thread is done executing, the event loop can look at the queues for any output's that need to be dealt with
+11. Microtask queue is given priority over callback queue, hence, the Promisified code is pushed to the call stack first, which is why we see Promise's output first.
+12. Output for setTimeout is then printed in the end
+
+
+
+
+</details>
