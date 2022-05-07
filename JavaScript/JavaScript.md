@@ -1314,7 +1314,7 @@ With that, the execution will be completed
 
 <summary>
 
-Serial and Parallel execution of Code with callbacks ft. Event Loop
+> # Serial and Parallel execution of Code with callbacks ft. Event Loop
 
 </summary>
 
@@ -1405,5 +1405,99 @@ Output:
 The output will be the same no matter how many times we run it.
 
 These nesting of callbacks is popularly known as "callback hell".
+
+</details>
+
+---
+
+<details>
+
+<summary>
+
+> # SetTimeout and SetInterval Ft. setInterval Polyfill
+
+</summary>
+
+As discussed before, setTimeout and setInterval are not JS functions. They are provided by the environment in which we run our code, i.e. Node.js or the browser
+
+## setTimeout
+
+It is a function that takes a function as a callback and executes it after a certain specified period of time
+
+Usage:
+
+![](2022-05-06-18-04-37.png)
+
+This will print `Hello` after 5 seconds
+
+![](2022-05-06-18-06-32.png)
+
+Output:
+```
+Byeeee
+*5 second delay*
+Hello
+```
+This is because Line 9 is executed as part of the main thread and setTimeout has been pushed to the Node API
+
+After setTimeout is done executing, it will be brought to the callback queue, and from there it will be brought to the call stack as soon as the latter is empty (the main thread has completed its work) [this is verified by the event loop], after which the output is setTimeout is logged.
+
+## setInterval
+
+Works similar to setTimeout, but unlike setTimeout, which executes the code in it only once, setInterval will continue to repeatedly execute that block of code after the specified interval.
+
+Usage:
+
+![](2022-05-06-18-23-02.png)
+
+Output:
+
+`Hiiii` will repeatedly print after every 2 seconds
+
+This process will happen infinitely, unless stopped.
+
+To stop it, we can use `clearInterval`
+
+Note: Every function such as setInterval has an ID assigned to it, so we need to catch the setInterval function inside a variable and pass the variable to the clearInterval() function as follows:
+
+![](2022-05-07-11-43-32.png)
+
+Output:
+```
+*2 second delay*
+Hiii
+*2 second delay*
+Hiii
+*2 second delay*
+Hiii
+```
+___
+
+## setInterval Polyfill
+
+We need to create our own setInterval and clearInterval
+
+The skeleton will be as follows:
+
+![](2022-05-07-12-13-04.png)
+
+In this function, we will define the functions required to implement the requirements
+
+setInterval logic:
+
+![](2022-05-07-12-16-00.png)
+
+clearInterval logic:
+
+![](2022-05-07-12-17-51.png)
+
+To test the code, call the created functions:
+
+![](2022-05-07-12-20-36.png)
+
+The callback passed should be `greeting`, not `greet`.
+
+
+
 
 </details>
