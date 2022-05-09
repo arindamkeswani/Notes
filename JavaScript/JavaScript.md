@@ -1610,7 +1610,7 @@ Explanation:
 
 > # Promises and associated functions
 
-<!-- </summary> -->
+</summary>
 
 ## .all()
 
@@ -1750,5 +1750,69 @@ It is used with `catch` instead of `then`.
 Output:
 
 ![](2022-05-09-14-25-14.png)
+
+</details>
+
+---
+
+<details>
+
+<summary>
+
+> # Read Limited Files with Promises (Serial and Parallel)
+
+</summary>
+
+Earlier, using callbacks, we read files serially (using nesting) and in-parallel (reading them normally). 
+We used `fs.readFile()` for that.
+
+Using promises, we can achieve the same using `fs.promises.readFile`. This returns a Promise and upon its fulfilment, from where we can retrieve its value.
+
+![](2022-05-09-15-41-02.png)
+
+Output:
+
+![](2022-05-09-15-41-39.png)
+
+___
+
+Use `.then()` to get the value of the file
+
+![](2022-05-09-15-43-08.png)
+
+
+Output:
+
+![](2022-05-09-15-43-35.png)
+
+To view the actual data, concatenate the data with a string
+
+![](2022-05-09-15-44-47.png)
+
+
+Output:
+
+![](2022-05-09-16-40-42.png)
+
+Run it again, and the order of output will change
+
+![](2022-05-09-16-41-30.png)
+
+This is how files are read in-parallel using Promises
+
+Note: The concept of event loop and microtask queue applies here as well.
+
+___
+
+To read the files serially, we use chaining:
+
+![](2022-05-09-16-54-20.png)
+
+![](2022-05-09-16-55-22.png)
+
+Output:
+
+![](2022-05-09-16-55-37.png)
+
 
 </details>
