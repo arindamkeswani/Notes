@@ -1816,3 +1816,47 @@ Output:
 
 
 </details>
+
+---
+
+<details>
+
+<summary>
+
+> # Read 'n' files using Promises (Serial and Parallel)
+
+</summary>
+
+It is not practical to read a large number of files using chaining, so we loop over the files:
+
+To read files in-parallel:
+
+![](2022-05-09-17-22-21.png)
+
+Output:
+
+![](2022-05-09-17-22-36.png)
+
+Note: All readFile operations will be performed in the Node API section, not the call stack. After the output is ready, it will be pushed to the microtask queue, and the event loop will push it on the call stack when possible.
+
+To do the same task serially:
+
+![](2022-05-09-17-31-18.png)
+
+Output:
+
+![](2022-05-09-17-32-02.png)
+
+Data of all files except `f4.txt` is printed
+
+To fix that, we will catch the data given by its Promise separately
+
+![](2022-05-09-17-33-32.png)
+
+Output:
+
+![](2022-05-09-17-34-03.png)
+
+
+
+</details>
