@@ -1601,7 +1601,154 @@ Explanation:
 11. Microtask queue is given priority over callback queue, hence, the Promisified code is pushed to the call stack first, which is why we see Promise's output first.
 12. Output for setTimeout is then printed in the end
 
+</details>
+
+---
+
+<details>
+<summary>
+
+> # Promises and associated functions
+
+<!-- </summary> -->
+
+## .all()
+
+![](2022-05-09-11-23-38.png)
+
+Output:
+
+![](2022-05-09-11-24-00.png)
+
+Pass all promises as an array in this function, and get a promise in return.
+By using .then(), we can get an array containing the results of the Promises as soon as they are resolved
 
 
+![](2022-05-09-11-27-58.png)
+
+Output:
+
+![](2022-05-09-11-28-33.png)
+
+
+In case a Promise is rejected (and a catch statement is added to catch the error)
+
+![](2022-05-09-11-29-51.png)
+
+ 
+![](2022-05-09-11-30-56.png)
+
+Output:
+
+![](2022-05-09-11-31-09.png)
+
+
+Promise.all() wants all Promises to be resolved, otherwise it will go in the catch block and will not resolve any Promises even if one Promise is rejected
+
+___
+
+## .race()
+
+[Referring to the original code, where all 3 promises were resolved]
+
+This works in a similar way as .all() as we pass an array of promises here as well.
+It returns a single value, which is the value of the first Promise that gets resolved. It does not wait for all Promises to get resolved.
+
+![](2022-05-09-12-50-44.png)
+
+Output:
+
+![](2022-05-09-12-51-14.png)
+
+In case of rejections:
+
+![](2022-05-09-12-54-12.png)
+
+Output:
+
+![](2022-05-09-12-54-32.png)
+
+Another case:
+
+![](2022-05-09-13-20-30.png)
+
+Output:
+![](2022-05-09-13-20-45.png)
+
+Reason: Race function returns the value of the first resolved Promise
+
+___
+
+## .allSettled()
+
+After all Promises are settled (), returns the details of each in an object 
+
+
+![](2022-05-09-13-28-47.png)
+
+Output:
+
+![](2022-05-09-13-29-10.png)
+
+This function returns an object with a key "status" indicating the status of the Promise, and its "value".
+
+In case of rejections,
+
+![](2022-05-09-13-31-23.png)
+
+Output:
+
+![](2022-05-09-13-31-50.png)
+
+___
+
+## .finally()
+
+
+`finally` block runs irrespective of the promise being resolved or rejected, i.e. whether we go in the `then` or `catch` block, the code inside the `finally` block will always run. This is usually used as a clean-up mechanism.
+
+In the following scenario:
+
+![](2022-05-09-14-10-20.png)
+
+The output will be:
+
+![](2022-05-09-14-10-42.png)
+
+After adding a `finally` block as shown: 
+
+Note: Line 2 : `var a=1+3`
+
+![](2022-05-09-14-12-13.png)
+
+Output:
+
+![](2022-05-09-14-12-41.png)
+
+
+## resolve()
+
+Function that is used by a Promise to get resolved
+
+It returns the resolved Promise and its value can be acquired using `.then()`
+
+![](2022-05-09-14-18-24.png)
+
+Output:
+
+![](2022-05-09-14-18-50.png)
+
+
+## reject()
+
+`reject()` works in a similar way as `resolve()`, but instead of resolving the process it rejects it.
+
+It is used with `catch` instead of `then`.
+
+![](2022-05-09-14-24-45.png)
+
+Output:
+
+![](2022-05-09-14-25-14.png)
 
 </details>
