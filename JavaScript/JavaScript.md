@@ -1999,3 +1999,61 @@ Output: `undefined`
 
 ---
 
+<details>
+
+
+<summary>
+
+> # Comparision operators and Truth-y False-y Values
+
+</summary>
+
+Every variable, object, array, etc. has an innate boolean (true or false) assigned to it in JS.
+
+## Comparison operators
+(== and ===)
+
+![](2022-05-10-15-45-54.png)
+
+![](2022-05-10-15-46-41.png)
+
+
+Notice that in the first example, the values look the same, and in the second one, the LHS is a number and RHS is a string, but the output is still `true`.
+
+Reason: The `==` operator simply compares the two values, not their type.
+
+This is also known as loose comparison.
+
+So, if we use `===` to perform the same comparison
+
+![](2022-05-10-15-52-11.png)
+
+Output:
+![](2022-05-10-15-52-50.png)
+
+Reason: The type of the two elements (Number and String) is also checked, along with the values.
+
+
+This is also known as strong comparison.
+
+## Truthy and Falsy values
+
+Check out the following block of code:
+
+![](2022-05-10-15-56-09.png)
+
+Output:
+`Yes Equal`
+
+Reason: A variable, when set with a non-zero numeric or a non-empty string value is assigned a `true` value.
+
+
+All values are truthy unless they are defined as falsy. That is, all values are truthy except `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, and `NaN`.
+
+So empty objects, arrays, functions, non-falsy(defined above) variables will return true.
+
+![](2022-05-10-16-57-05.png)
+
+We are creating an object in the above code snippet, so it is truthy.
+
+</details>
