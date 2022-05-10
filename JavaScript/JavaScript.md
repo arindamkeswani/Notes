@@ -1860,3 +1860,142 @@ Output:
 
 
 </details>
+
+---
+
+<details>
+
+
+<summary>
+
+> # Promises over callbacks
+
+</summary>
+
+Apart from issues like "callback hell", callbacks are not trustworthy overall.
+
+Suppose we have the following function:
+
+![](2022-05-09-18-01-43.png)
+
+It is imported in another file:
+
+![](2022-05-09-18-27-58.png)
+
+Output:
+
+![](2022-05-09-18-28-22.png)
+
+If we change the `updateAccount` code to the following:
+
+![](2022-05-09-18-30-21.png)
+
+Output:
+
+![](2022-05-09-18-31-00.png)
+
+So if a developer calls the callback more than once by mistake, the customer will be charged  multiple times for the same product.
+
+We will use Promises to rectify this. We modify the previous code accordingly.
+
+![](2022-05-09-18-37-11.png)
+
+The function is called as follows:
+
+![](2022-05-09-18-38-22.png)
+
+
+
+</details>
+
+---
+
+<details>
+
+<summary>
+
+> # null Vs undefined Vs not defined
+
+</summary>
+
+## undefined
+
+We have come across a similar code snippet before, while studying var, let, const, and hoisting:
+
+![](2022-05-10-11-03-47.png)
+
+Output: `undefined`
+
+Reason: variable `a` is assigned memory, but its value is not initialized yet.
+
+## not defined
+
+But if we try to print the variable without assigning memory to it, it will be considered `not defined`
+
+![](2022-05-10-11-08-21.png)
+
+So, `undefined` means that we have the variable in our memory, but we do not have its value
+`not defined` means that we do not have the variable in our memory
+
+## null
+
+In the following snippet:
+
+![](2022-05-10-11-12-59.png)
+
+If we try to run it, the output will be `null`, but if we remove the code in line 6, it will not give `undefined` as the output.
+
+So, we had to assign the `null` value <b>explicitly</b>, unlike undefined.
+
+___
+
+Similarly, the following snippet will also return `undefined`:
+![](2022-05-10-11-18-20.png)
+
+But we know that the global object does exist. What if we tried to access a variable from an object that does not exist?
+
+![](2022-05-10-11-21-14.png)
+
+Output:
+
+![](2022-05-10-11-21-33.png)
+
+But if we make the object, and from it we try to access a non-existent variable:
+
+![](2022-05-10-11-22-29.png)
+
+Output: `undefined`
+
+---
+
+`undefined`: Value given by JS Engine when the variable is in the memory but they do not have an assigned value. This can also be explicitly defined.
+
+`null`: Value given explicitly by us to some variables that exist, but we don't have their value.
+
+`not defined`: Variable does not exist in memory at all.
+
+___
+
+More use cases:
+
+In an object, if we have kept a key, we have to assign some value to it, otherwise it will throw an error
+
+![](2022-05-10-11-31-36.png)
+
+So, if one does not have a middle name, we can set it as `null` instead.
+
+![](2022-05-10-11-32-57.png)
+
+Output: `null`
+
+If we try to access a key from the object that does not exist:
+
+![](2022-05-10-11-33-59.png)
+
+Output: `undefined`
+
+
+</details>
+
+---
+
