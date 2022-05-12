@@ -2185,3 +2185,30 @@ Deep copy can be created using:
 
 ---
 
+<details>
+
+<summary>
+
+> # Flatten an object
+
+</summary>
+
+Flattening an object means that there should be no nesting in it. All items should be at the same level.
+
+So an object like the following:
+
+![](20220512182539.png)  
+
+Becomes:
+
+![](20220512182605.png)  
+
+Code:
+- Recursive approach that check whether every key is part of a parent object or not (i.e. it is at base level)
+- If it is part of an object, "propertyName" becomes "parent_currKey", otherwise "currKey"
+- If currKey is an object, go into it recursively and repeat the process, otherwise finalize the value of the new key "propertyName" to the value of "currKey".
+- Return the resultant object
+
+![](20220512182719.png)  
+
+</details>
