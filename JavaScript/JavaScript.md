@@ -2057,3 +2057,131 @@ So empty objects, arrays, functions, non-falsy(defined above) variables will ret
 We are creating an object in the above code snippet, so it is truthy.
 
 </details>
+
+---
+
+<details>
+
+<summary>
+
+Shallow Copy and Deep Copy
+
+</summary>
+
+E.g. If we assign an array as another array, and then if we change the value of the copied data, the original data changes as well.
+
+![](20220512113502.png)  
+
+Output:
+Index 1 changes for both arrays
+
+![](20220512113601.png)  
+
+This is because both the arrays are pointing to the same reference.
+
+
+This can be an issue, which we can solve using spread (`...`) operator
+
+## Shallow Copy
+
+![](20220512114123.png)  
+
+On printing the values, we will get the following output:
+
+![](20220512114229.png)  
+
+But this approach will not work for nested objects. Here, it will modify the original object as well.
+
+![](20220512114441.png)  
+
+Output:
+
+![](20220512114603.png)  
+
+The nested object gets changed for both the original and copied data, whereas the non-nested portion gets changes only for the copied data, as before.
+
+So, spread operator creates a shallow copy.
+
+___
+
+Using `Array.from()` method will give the same output
+
+![](20220512115018.png)  
+
+Output:
+
+![](20220512131649.png)  
+
+___
+
+Using .slice() method will give the same output as well
+
+![](20220512131928.png)  
+
+Objects behave in the same way:
+
+1. Direct assignment attaches the same reference to the copied data.
+
+![](20220512132437.png)  
+
+2. Spread operator
+
+![](20220512132554.png)  
+
+Output:
+
+![](20220512132611.png)  
+
+You may use `Object.assign` as well.
+
+![](20220512133227.png)  
+
+Output:
+
+![](20220512133316.png)  
+
+
+## Deep copy
+
+One way of achieving deep copy is using `JSON.parse(JSON.stringify(varName))`
+
+This will create a different reference for the copied data.
+
+Note: This is computationally expensive.
+
+![](20220512132229.png)  
+
+Output:
+
+![](20220512132244.png)  
+
+___
+
+For objects:
+
+![](20220512132951.png)  
+
+Output:
+
+![](20220512133009.png)  
+
+
+## Summary:
+
+Direct assignment of data to another variable attaches the same reference to the copied data as the original. Therefore, all changes to the copied data are reflected.
+
+Shallow copy can be created using:
+
+1. Spread operator
+2. Array.from()
+3. arr.slice(0)
+4. Object.assign
+
+
+Deep copy can be created using:
+1. JSON.parse(JSON.stringify(varName))
+
+<details>
+
+---
+
