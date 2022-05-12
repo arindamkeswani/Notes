@@ -2212,3 +2212,36 @@ Code:
 ![](20220512182719.png)  
 
 </details>
+
+---
+
+<details>
+
+<summary>
+
+> # Array.isArray()
+
+</summary>
+
+In JS, we can check the type of data in the following manner using `typeof`:
+
+![](20220512184724.png)  
+
+Doing the same for the other variables, we get:
+
+obj: `object`
+
+num: `number`
+
+arr: `object`
+
+This shows that reference data types are treated as <u>objects</u> in JS.
+
+To check whether data is an array or not, we can do the following:
+
+![](20220512185159.png)  
+
+Output: `true`
+
+
+</details>
