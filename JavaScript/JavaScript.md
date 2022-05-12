@@ -2245,3 +2245,72 @@ Output: `true`
 
 
 </details>
+
+---
+
+<details>
+
+<summary>
+
+> # Questions on Promises 
+
+</summary>
+
+![](20220512211729.png)  
+
+Output:
+
+![](20220512211755.png)  
+
+Reason:
+`3` is printed because it is the first to go on the main thread
+`4`
+`5` is printed because of micro-task queue, which is used for Promises and is given preference over callback queue
+`1`
+`2`
+`6` prints at the end because they are received by the main thread via the callback queue after all the other tasks are done.
+
+___
+
+Task: Convert it into a code that prints the number in order
+
+Ans:
+
+![](20220512212307.png)  
+
+___
+
+![](20220512212450.png)  
+
+One would expect the code to go into the catch block and print the error, but the actual output is:
+
+![](20220512212542.png)  
+
+Despite the promise being rejected, it goes into the `.then` block.
+
+Notice the parameters in then. They are `null` and a function
+
+`.then` takes 2 callback functions as parameters, one for success, the other for failure.
+The success callback was called when the Promise was resolved, and failre callback was called on Promise rejection (similar to how the catch block is used).
+
+So if the code is changed to something like this:
+
+![](20220512212906.png)  
+
+This turns the function which we were using as a failure callback to a success callback.
+
+Output:
+
+![](20220512213009.png)  
+
+___
+
+Task: Create a setTimeout with Promises in the form of a function that takes time in miliseconds as an argument
+
+![](20220512213135.png)  
+
+Ans:
+
+![](20220512213415.png)  
+
+</details>
