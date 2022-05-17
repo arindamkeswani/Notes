@@ -2291,7 +2291,7 @@ Despite the promise being rejected, it goes into the `.then` block.
 Notice the parameters in then. They are `null` and a function
 
 `.then` takes 2 callback functions as parameters, one for success, the other for failure.
-The success callback was called when the Promise was resolved, and failre callback was called on Promise rejection (similar to how the catch block is used).
+The success callback was called when the Promise was resolved, and failure callback was called on Promise rejection (similar to how the catch block is used).
 
 So if the code is changed to something like this:
 
@@ -2314,3 +2314,88 @@ Ans:
 ![](20220512213415.png)  
 
 </details>
+
+---
+
+<details>
+
+<summary>
+
+Async Await
+
+</summary>
+
+![](20220517143111.png)  
+
+Output:
+
+`3`
+
+Async functions return Promises. `inc(1)` returns 2, which is resolved and chained with `increment(2)`, which in turn returns 3, which is logged.
+
+___
+
+![](20220517143523.png)  
+
+Output:
+
+![](20220518003252.png)  
+
+So the flow of code when to the .then() block and the failure callback was executed.
+
+But in the following case:
+![](20220518003508.png)  
+
+Output:
+
+![](20220518003532.png)  
+
+___
+
+![](20220518011737.png)  
+
+Output:
+
+![](20220518011923.png)  
+
+___
+
+
+![](20220518012221.png)  
+
+Printing partial output for:
+
+![](20220518012849.png)  
+
+Output for this step:
+
+![](20220518012351.png)  
+
+Total time taken to execute the complete code (in the original question) will be:
+
+1(for `a`) + 2(for `y`) + 1(1 extra second for `z`) = 4 seconds
+
+`p` and `q` will not be resolved. A Promise will be returned.
+
+And so far, values that we have are 1, 2, 3 from a, y, z, respectively.
+
+Then `await p` and `await q` will add their own time (1 + 1 extra seconds)
+
+In the Output, we had 6 already, and now 4 and 5 will be added to it.
+
+Output:
+
+![](20220518014021.png)  
+
+Notice how time taken is only approx. 6 seconds
+
+That is because p and q were resolved in overlapping fashion.
+___
+
+
+
+
+
+</details>
+
+---
