@@ -2399,3 +2399,45 @@ ___
 </details>
 
 ---
+
+<details>
+
+<summary>
+
+Closures
+
+</summary>
+
+![](20220519123918.png)  
+
+Output:
+```
+6
+6
+6
+6
+6
+6
+```
+
+There is a single instance of var i which is created globally, and by the time setTimeout is executed, the value of i is already 6, and that is the value used in the output.
+
+How do we print `0 1 2 3 4 5` as the output then? Change `var` to `let`
+`let` is block scoped
+
+How do we get this output without using `let` or `const`?
+![](20220519124341.png)  
+
+We used an IIFE, that sets `j` on every iteration with the current value of `i`.
+
+___
+
+Another case: variable is initialised outside the loop using let
+![](20220519124829.png)  
+
+Output:
+![](20220519124906.png)  
+
+Reason: Let was declared globally, so its value was updated to 6 before setTimeout was executed.
+
+</details>
