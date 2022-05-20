@@ -2441,3 +2441,107 @@ Output:
 Reason: Let was declared globally, so its value was updated to 6 before setTimeout was executed.
 
 </details>
+
+---
+
+<details>
+
+<summary>
+
+Create private variables with closures
+
+</summary>
+
+Say we wish to keep a variable `name` private, we can do so with the help of getter and setter functions.
+
+![](20220520011157.png)  
+
+So we set the name using the function that we created, and we access the name via our function, instead of modifying or accessing the variable directly.
+
+![](20220520011258.png)  
+
+Output:
+
+`Alex`
+
+This will work for any name. Now, what if we tried to access the variable itself?
+
+![](20220520011434.png)  
+
+Output:
+
+`undefined`
+
+Reason: The variable is scoped and so it cannot be accessed outside its block without using functions as an intermediary.
+
+Externally, we are only able to access those values that we have returned, i.e. the functions.
+
+</details>
+
+---
+
+<details>
+
+<summary>
+
+Closures and Scope Interview questions
+
+</summary>
+
+![](20220520223134.png)  
+
+Output: `0`
+
+Reason: `immediateB` is receiving the value of `a` which is 0, from its parent, i.e. `immediateA`
+
+___
+
+![](20220520223604.png)  
+
+Output:
+```
+1
+0
+```
+
+Reason: Scope of line 5 is restricted to the `if` block whereas scope for line 7 is the function that is declared globally.
+
+___
+
+![](20220520223918.png)  
+
+Output:
+![](20220520224100.png)  
+
+Reason: While we are trying to increment the value of `count` thrice, note that it is happening inside the function, so the `count` variable in the `increment` function is the different from the variable defined in line 2 due to its block scope. 
+
+We cannot use the value of the `count` variable used in line 4 outside its function.
+
+___
+
+![](20220520224528.png)  
+
+Output:
+
+```
+3
+3
+3
+```
+Reason: This is due to closures and async nature of JS.
+
+The for-loop continues to execute while the setTimeout takes its time in the Node APIs section so by the time the setTimeout finishes its timer, the value of `i` is set to 3, which is the value that will be caught everytime.
+
+How to print the value of `i` in serial order then?
+
+Change the `var` to `let`.
+
+![](20220520224848.png)  
+
+Reason: `let` creates a new reference for `i` for every iteration as it is block-scoped, as it is going into a new block everytime.
+
+To have the same behavior with `var`, do the following:
+
+![](20220520225137.png)
+
+</details>
