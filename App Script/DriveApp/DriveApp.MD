@@ -64,3 +64,48 @@ In case we wish to terminate the iterations for now and want to continue them la
 
 
 </details>
+
+---
+
+<details>
+
+<summary>
+
+# Folders
+
+</summary>
+
+To access the Root folder of Google Drive (and print its name):
+
+![](20220603161541.png)  
+
+Output:
+
+![](20220603161621.png)  
+
+But whenever we use `DriveApp` class, we start out from the root folder by default.
+
+To get folders inside the Root folder (or any folder), we have 3 methods:
+
+![](20220603161857.png)  
+
+Notice where an iterator is being returned vs when a Folder is being returned.
+
+Usage:
+
+![](20220603163444.png)  
+
+---
+
+To create a folder called "Users" and to create a folder inside "Users" called "Profile Data", do the following:
+
+![](20220603163708.png)  
+
+Note: `createFolder` returns the folder that was just created, so to create another folder in this new folder, we can chain the two `createFolder` methods.
+
+We can get all folders inside our Drive which have the same name (say "Example"), and then changing their name to something else as follows:
+
+![](20220603164753.png)
+
+
+</details>
