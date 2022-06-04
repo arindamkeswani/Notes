@@ -170,5 +170,5 @@ So if someone wishes to enable everyone with the link to view the document:
 
 ![](20220604144700.png)  
 
-Drive Access & Permissions
+
 </details>
