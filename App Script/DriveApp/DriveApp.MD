@@ -109,3 +109,66 @@ We can get all folders inside our Drive which have the same name (say "Example")
 
 
 </details>
+
+---
+
+<details>
+
+<summary>
+
+# Drive Access & Permissions
+
+</summary>
+
+When we create a file, say a Google Sheets spreadsheet, it is private (only accessible by us) by default.
+
+If a different account had the URL of our spreadsheet and tried to access it, they would see a message similar to the one below:
+
+![](20220604132523.png)  
+
+To grant access to a user via code, we have the following methods based on different access levels:
+
+![](20220604132714.png)  
+
+E.g.: Giving Editor access to an ID
+
+Even here, there are multiple ways of doing so
+
+![](20220604143059.png)  
+
+Using Email ID as a string, using User class as a parameter, or adding multiple users as the same time:
+
+
+E.g.:
+![](20220604142850.png)  
+
+To get the list of Editors (or Viewers/Commenters w/ their respective functions) as an Array of Users:
+
+![](20220604143734.png)  
+
+The User class has the following methods:
+
+![](20220604143836.png)  
+
+To make the file un-shareable by other Editors (i.e. they can give access of the document to other people):
+
+![](20220604144014.png)  
+
+Similar to giving access to people, we can revoke it too:
+
+![](20220604144224.png)  
+
+To change general file access:
+
+![](20220604144432.png)  
+
+Similarly, for permissions:
+
+![](20220604144526.png)  
+
+So if someone wishes to enable everyone with the link to view the document:
+
+![](20220604144700.png)  
+
+Drive Access & Permissions
+</details>
