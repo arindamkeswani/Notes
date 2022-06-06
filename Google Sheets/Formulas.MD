@@ -1,6 +1,11 @@
+<details>
 
+<summary>
 
 # Important Formulas
+
+</summary>
+
 
 <details>
 
@@ -434,9 +439,14 @@ We can then use dynamic formulas based on this dropdown to show the relevant she
 
 ---
 
+</details>
+
+
+
 <details>
 
 <summary>
+
 
 # Custom Functions
 
