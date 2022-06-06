@@ -431,3 +431,43 @@ We can then use dynamic formulas based on this dropdown to show the relevant she
 
 
 </details>
+
+---
+
+<details>
+
+<summary>
+
+# Custom Functions
+
+</summary>
+
+![](20220606173824.png)  
+
+Write your custom function script
+
+![](20220606172143.png)  
+
+Use it in the sheet
+
+![](20220606172220.png)  
+
+But it will not be showed as a suggested function yet.
+To make auto-complete recognize it, add documentation as follows:
+
+![](20220606172629.png)  
+
+It is possible to add multiple functions in the same script as follows:
+
+![](20220606173901.png)  
+
+
+We can also define the role of each parameter as follows:
+
+---
+
+In case of ranges, arrays are passed as parameters (1-D or 2-D) which are treated accordingly.
+
+They can be received in the function using rest operator `fn(...args)`
+
+</details>
